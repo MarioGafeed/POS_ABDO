@@ -6,13 +6,9 @@
           :src="userProfileImage"
           alt="User Profile"
           class="user-profile-image"
-          @click="toggleMobileMenu"
         />
       </button>
-    </div>
-    <div class="header-icons divider">|</div>
-
-    <div class="header-icons" v-if="!isMobileMenu">        
+      <div class="header-icons divider">|</div>
       <button class="icon-button">
         <img
           src="https://flagcdn.com/w320/eg.png"
@@ -20,7 +16,18 @@
           class="flag-icon"
         />
       </button>
-      <div class="header-icons divder">|</div>
+      <div class="header-icons divider">|</div>
+    </div>
+
+    <div class="d-flex align-items-center flex-grow-1">
+      <button class="icon-button flex-grow-1">
+        <FontAwesomeIcon :icon="faRectangleXmark" class="close-icon" />
+      </button>
+      <span class="time-text">{{ formattedData }} | {{ currentTime }}</span>
+      <div class="header-icons divider">|</div>
+    </div>
+
+    <div class="d-flex align-items-center">
       <button class="icon-button">
         <FontAwesomeIcon :icon="faEnvelope" class="interaction-icon" />
       </button>
@@ -29,32 +36,11 @@
       </button>
       <div class="header-icons divider">|</div>
       <button class="icon-button">
-        <FontAwesomeIcon :icon="faRectangleXmark" class="close-icon" />
-      </button>
-      <span class="time-text">{{ formattedData }} | {{ currentTime }}</span>
-      <button class="icon-button">
         <FontAwesomeIcon :icon="faSignal" class="control-icon" />
       </button>
-      <button class="icon-button" @click="toggleFullScreen">
+      <button class="header-icons icon-button" @click="toggleFullScreen">
         <FontAwesomeIcon :icon="faExpand" class="control-icon" />
       </button>
-    </div>
-
-    <div v-else class="mobile-menu">
-      <button class="icon-button">
-        <img
-          src="https://flagcdn.com/w320/eg.png"
-          alt="Egyptian Flag"
-          class="flag-icon"
-        />
-      </button>       
-      <button class="icon-button">
-        <FontAwesomeIcon :icon="faBell" class="interaction-icon" />
-      </button>
-      <FontAwesomeIcon :icon="faSignal" class="control-icon" />
-      <button class="icon-button">
-        <FontAwesomeIcon :icon="faRectangleXmark" class="close-icon" />
-      </button>        
     </div>
   </div>
 </template>
@@ -68,12 +54,15 @@ import {
   faRectangleXmark,
   faSignal,
   faExpand,
-  faCompress
+  faCompress,
 } from "@fortawesome/free-solid-svg-icons";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const props = defineProps({
-  userProfileImage: { type: String, default: "https://i.postimg.cc/TYXCLqMS/Mario-Icon.png" },
+  userProfileImage: {
+    type: String,
+    default: "https://i.postimg.cc/TYXCLqMS/Mario-Icon.png",
+  },
 });
 
 const currentTime = ref("");
@@ -99,13 +88,13 @@ const toggleFullScreen = () => {
     if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen();
       isFullScreen.value = true;
-    } else if (document.documentElement.mozRequestFullScreen) { 
+    } else if (document.documentElement.mozRequestFullScreen) {
       document.documentElement.mozRequestFullScreen();
       isFullScreen.value = true;
     } else if (document.documentElement.webkitRequestFullscreen) {
       document.documentElement.webkitRequestFullscreen();
       isFullScreen.value = true;
-    } else if (document.documentElement.msRequestFullscreen) { 
+    } else if (document.documentElement.msRequestFullscreen) {
       document.documentElement.msRequestFullscreen();
       isFullScreen.value = true;
     }
@@ -116,10 +105,10 @@ const toggleFullScreen = () => {
     } else if (document.mozCancelFullScreen) {
       document.mozCancelFullScreen();
       isFullScreen.value = false;
-    } else if (document.webkitExitFullscreen) { 
+    } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
       isFullScreen.value = false;
-    } else if (document.msExitFullscreen) { 
+    } else if (document.msExitFullscreen) {
       document.msExitFullscreen();
       isFullScreen.value = false;
     }
@@ -130,40 +119,35 @@ onMounted(() => {
   updateTime();
   const timeInterval = setInterval(updateTime, 1000);
 
-  document.addEventListener('fullscreenchange', () => {
+  document.addEventListener("fullscreenchange", () => {
     isFullScreen.value = !!document.fullscreenElement;
   });
-  document.addEventListener('webkitfullscreenchange', () => {
+  document.addEventListener("webkitfullscreenchange", () => {
     isFullScreen.value = !!document.webkitFullscreenElement;
   });
-  document.addEventListener('mozfullscreenchange', () => {
+  document.addEventListener("mozfullscreenchange", () => {
     isFullScreen.value = !!document.mozFullScreenElement;
   });
-  document.addEventListener('MSFullscreenChange', () => {
+  document.addEventListener("MSFullscreenChange", () => {
     isFullScreen.value = !!document.msFullscreenElement;
   });
 
   return () => {
     clearInterval(timeInterval);
     // Remove event listeners
-    document.removeEventListener('fullscreenchange', () => {});
-    document.removeEventListener('webkitfullscreenchange', () => {});
-    document.removeEventListener('mozfullscreenchange', () => {});
-    document.removeEventListener('MSFullscreenChange', () => {});
+    document.removeEventListener("fullscreenchange", () => {});
+    document.removeEventListener("webkitfullscreenchange", () => {});
+    document.removeEventListener("mozfullscreenchange", () => {});
+    document.removeEventListener("MSFullscreenChange", () => {});
   };
 });
 </script>
 
 <style lang="scss" scoped>
 .header-content {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-  align-items: center;
-  background-color: white;
-  padding: 0.5rem;
-  gap: 0.5rem;
-  overflow-x: auto;
-  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 1rem;
 }
 
 .user-profile-image {
@@ -195,6 +179,9 @@ onMounted(() => {
   margin-left: auto;
   background-color: #efefef;
   border-radius: 0.75rem;
+  flex-grow: 1;
+  text-align: center;
+  padding: 5px;
 }
 
 .divider {

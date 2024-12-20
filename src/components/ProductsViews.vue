@@ -1,12 +1,13 @@
 <template>
   <div
     id="productsView"
-    class="col-6 bg-info d-flex flex-column gap-2 "
+    class="col-6 bg-info d-flex flex-column gap-2 position-relative"
     :style="{ width: width + '%' }"
   >
-    <SnapBar />
+    <SnapBar />    
+    <SetteingsBtn v-if="!isPhoneStore.isPhone" />
 
-    <div class="col-12  gap-3 row-gap-3 p-3">      
+    <div class="col-12  gap-3 row-gap-3 p-3 mt-2">      
       <input
         v-model="searchVal"
         class="search col-12"
@@ -40,6 +41,8 @@
 import { computed, ref } from "vue";
 import ProductBtn from "./ProductBtn.vue";
 import SnapBar from "./SnapBar.vue";
+import SetteingsBtn from "./SetteingsBtn.vue";
+import { useisPhoneStore } from "../stores/isPhone";
 const searchVal = ref();
 
 const data = ref([
@@ -55,6 +58,8 @@ const data = ref([
 
 const view = ref([]);
 view.value = data.value;
+
+const isPhoneStore = useisPhoneStore();
 
 const filteredProducts = computed(() => {
   const searchTerm = (searchVal.value ?? "").trim().toLowerCase();

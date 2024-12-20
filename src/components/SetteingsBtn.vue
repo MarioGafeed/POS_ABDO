@@ -3,13 +3,13 @@
     <button class="button" :onclick="toggleSettings">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="20"
+        width="50"
         viewBox="0 0 20 20"
-        height="20"
+        height="100"
         fill="none"
         class="svg-icon"
       >
-        <g stroke-width="1.5" stroke-linecap="round" stroke="#5d41de">
+        <g stroke-width="1.5" stroke-linecap="round" stroke="#ffffff">
           <circle r="2.5" cy="10" cx="10"></circle>
           <path
             fill-rule="evenodd"
@@ -39,12 +39,15 @@ const toggleSettings = () => {
 /* From Uiverse.io by andrew-demchenk0 */
 .settingsContainer {
   transition: ease all 400ms;
-  position: fixed;
+  position: absolute;
   top: 50%;
-  right: 0;
+  right: -1.75rem;
   * {
     transition: ease all 400ms;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .button {
   display: flex;
@@ -52,24 +55,24 @@ const toggleSettings = () => {
   align-items: center;
   padding: 6px 12px;
   gap: 8px;
-  height: 36px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border: none;
-  background: #5e41de33;
-  border-radius: 20px;
+  background: #008561;
+  border-radius: 40px;
   cursor: pointer;
 }
 
 .lable {
   line-height: 20px;
   font-size: 17px;
-  color: #5d41de;
+  color: #ffffff;
   font-family: sans-serif;
   letter-spacing: 1px;
 }
 
 .button:hover {
-  background: #5e41de4d;
+  background: black;
 }
 
 .button:hover .svg-icon {
@@ -82,7 +85,7 @@ const toggleSettings = () => {
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 }
 </style>

@@ -44,7 +44,7 @@ $greenlight: #008560;
       width: 100%;
       background-color: $greenlight;
       color: white;
-      border-radius: 0 0 0.75rem 0.75rem;
+      border-radius: 0 0 0.0.5rem 0.5rem;
       border: none;
       outline: none;
       box-shadow: none !important;
