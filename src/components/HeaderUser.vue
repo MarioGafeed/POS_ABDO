@@ -21,7 +21,11 @@
 
     <div class="d-flex align-items-center flex-grow-1">
       <button class="icon-button flex-grow-1">
-        <FontAwesomeIcon :icon="faRectangleXmark" class="close-icon" />
+        <font-awesome-icon :icon="faPlus" class="interaction-icon" />
+      </button>
+
+      <button class="icon-button flex-grow-1">
+        <font-awesome-icon :icon="faRectangleXmark" class="close-icon" />
       </button>
       <span class="time-text">{{ formattedData }} | {{ currentTime }}</span>
       <div class="header-icons divider">|</div>
@@ -35,11 +39,11 @@
         <FontAwesomeIcon :icon="faBell" class="interaction-icon" />
       </button>
       <div class="header-icons divider">|</div>
-      <button class="icon-button">
-        <FontAwesomeIcon :icon="faSignal" class="control-icon" />
+      <button class="header-icons icon-button">
+        <FontAwesomeIcon :icon="faSignal" class="interaction-icon" />
       </button>
       <button class="header-icons icon-button" @click="toggleFullScreen">
-        <FontAwesomeIcon :icon="faExpand" class="control-icon" />
+        <FontAwesomeIcon :icon="faExpand" class="interaction-icon" />
       </button>
     </div>
   </div>
@@ -55,6 +59,7 @@ import {
   faSignal,
   faExpand,
   faCompress,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -66,7 +71,7 @@ const props = defineProps({
 });
 
 const currentTime = ref("");
-const formattedData = ref("");
+const formattedData = ref();
 const isMobileMenu = ref(false);
 const isFullScreen = ref(false);
 
@@ -75,8 +80,14 @@ const updateTime = () => {
   currentTime.value = now.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
   });
-  formattedData.value = now.toLocaleDateString();
+  // formattedData.value = now.toLocaleDateString();
+  formattedData.value = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(now).replace(/\//g, ' ');
 };
 
 const toggleMobileMenu = () => {
@@ -134,7 +145,6 @@ onMounted(() => {
 
   return () => {
     clearInterval(timeInterval);
-    // Remove event listeners
     document.removeEventListener("fullscreenchange", () => {});
     document.removeEventListener("webkitfullscreenchange", () => {});
     document.removeEventListener("mozfullscreenchange", () => {});
@@ -149,6 +159,8 @@ onMounted(() => {
   justify-content: space-between;
   padding: 5px 1rem;
 }
+
+
 
 .user-profile-image {
   width: 40px;
@@ -168,10 +180,15 @@ onMounted(() => {
   width: 20px;
   height: 15px;
 }
-
 .interaction-icon,
 .close-icon {
   margin: 0 0.25rem;
+  color: red;
+  widows: 60px;
+  height: 25px;
+}
+.interaction-icon{
+  color: black;
 }
 
 .time-text {
@@ -182,6 +199,9 @@ onMounted(() => {
   flex-grow: 1;
   text-align: center;
   padding: 5px;
+  @media (max-width: 700px) {
+    display: none; 
+  }
 }
 
 .divider {
@@ -193,10 +213,7 @@ onMounted(() => {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  &:hover {
-    color: rgb(233, 1, 1);
-  }
+  padding: 0;  
 }
 
 @media (max-width: 480px) {
