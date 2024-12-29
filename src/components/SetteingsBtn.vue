@@ -17,21 +17,22 @@
             clip-rule="evenodd"
           ></path>
         </g>
-      </svg>      
+      </svg>
     </button>
-    <Reziser v-if="contentIndex" />
+    <Reziser v-if="ratioStore.rationIndex" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
 import Reziser from "./Reziser.vue";
-const contentIndex = ref(false);
+
+import { useRatioStore } from "../stores/ratio";
+const ratioStore = useRatioStore();
 const toggleSettings = () => {
-  if (contentIndex.value == true) {
-    contentIndex.value = false;
+  if (ratioStore.rationIndex == true) {
+    ratioStore.rationIndex = false;
   } else {
-    contentIndex.value = true;
+    ratioStore.rationIndex = true;
   }
 };
 </script>

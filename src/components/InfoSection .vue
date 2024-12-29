@@ -1,139 +1,147 @@
 <template>
-  <div class="infoSection d-flex flex-column align-items-center rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
-    >
-      <p class="m-0 text-end">الحساب</p>
-    </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
-      <select
-        class="select text-center form-select form-select-sm"
-        aria-label=".form-select-sm"
+  <div class="d-flex flex-wrap p-2 pb-4 gap-1 row-gap-2">
+    <div class="infoSection d-flex flex-column align-items-center rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
       >
-        <option selected>اسم او فون</option>
-        <option value="1">احمد نبيه</option>
-      </select>
-    </div>
-    <div class="col-12 p-0">
-      <button id="infoBtn" class="btn btn-custom action-event">
-        <font-awesome-icon :icon="['fas', 'plus']" />
-      </button>
-    </div>
-  </div>
-
-  <div class="infoSection d-flex flex-column align-items-center rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
-    >
-      <p class="m-0 text-end">الخزينة</p>
-    </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
-      <select
-        class="select text-center form-select form-select-sm"
-        aria-label=".form-select-sm"
-      >
-        <option selected>الرئيسية</option>
-        <option value="1">خزينة1</option>
-      </select>
-    </div>
-    <div class="snapFooter col-12 p-0">
-      <button class="pin-btn action-event">
-        <font-awesome-icon :icon="['fas', 'thumbtack']" />
-      </button>
-    </div>
-  </div>
-
-  <div class="infoSection rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center m-0"
-    >
-      <div class="d-flex align-items-center gap-1">
-        <p class="m-0 text-end">فاتورة</p>
-        <button class="print-btn border-0 bg-transparent p-0">
-          <font-awesome-icon :icon="['fas', 'print']" class="receipt-icon" />
+        <p class="m-0 text-end">الحساب</p>
+      </div>
+      <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
+        <select
+          class="select text-center form-select form-select-sm"
+          aria-label=".form-select-sm"
+        >
+          <option selected>اسم او فون</option>
+          <option value="1">احمد نبيه</option>
+        </select>
+      </div>
+      <div class="col-12 p-0">
+        <button id="infoBtn" class="btn btn-custom action-event">
+          <font-awesome-icon :icon="['fas', 'plus']" />
         </button>
       </div>
     </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 justify-content: center">
-      <p class="receipt text-center">52</p>
-    </div>
-    <div
-      class="snapFooter col-12 p-0 d-flex justify-content-center align-items-center"
-    >
-      <button class="receiptpin-btn action-event" id="left-round">&lt;</button>
-      <button class="receiptpin-btn middle-round action-event">
-        <font-awesome-icon :icon="['fas', 'search']" />
-      </button>
-      <button class="receiptpin-btn middle-round action-event">&lt;&lt;</button>
-      <button class="receiptpin-btn action-event" id="right-round">
-        &gt;&gt;
-      </button>
-    </div>
-  </div>
 
-  <div class="infoSection d-flex flex-column align-items-center rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
-    >
-      <p class="m-0 text-end">المخزن</p>
-    </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
-      <select
-        class="select text-center form-select form-select-sm"
-        aria-label=".form-select-sm"
+    <div class="infoSection d-flex flex-column align-items-center rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
       >
-        <option selected>الرئيسي</option>
-        <option value="1">مخزن1</option>
-      </select>
+        <p class="m-0 text-end">الخزينة</p>
+      </div>
+      <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
+        <select
+          class="select text-center form-select form-select-sm"
+          aria-label=".form-select-sm"
+        >
+          <option selected>الرئيسية</option>
+          <option value="1">خزينة1</option>
+        </select>
+      </div>
+      <div class="snapFooter col-12 p-0">
+        <button class="pin-btn action-event">
+          <font-awesome-icon :icon="['fas', 'thumbtack']" />
+        </button>
+      </div>
     </div>
-    <div class="snapFooter col-12 p-0">
-      <button class="pin-btn action-event">
-        <font-awesome-icon :icon="['fas', 'thumbtack']" />
-      </button>
-    </div>
-  </div>
 
-  <div class="infoSection d-flex flex-column align-items-center rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
-    >
-      <p class="m-0 text-end">السداد</p>
-    </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
-      <select
-        class="select text-center form-select form-select-sm"
-        aria-label=".form-select-sm"
+    <div class="infoSection rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center m-0"
       >
-        <option selected>نقدي</option>
-        <option value="1">اجل</option>
-      </select>
+        <div class="d-flex align-items-center gap-1">
+          <p class="m-0 text-end">فاتورة</p>
+          <button class="print-btn border-0 bg-transparent p-0">
+            <font-awesome-icon :icon="['fas', 'print']" class="receipt-icon" />
+          </button>
+        </div>
+      </div>
+      <div
+        class="middlePart d-flex col-12 flex-wrap p-2 justify-content: center"
+      >
+        <p class="receipt text-center">52</p>
+      </div>
+      <div
+        class="snapFooter col-12 p-0 d-flex justify-content-center align-items-center"
+      >
+        <button class="receiptpin-btn action-event" id="left-round">
+          &lt;
+        </button>
+        <button class="receiptpin-btn middle-round action-event">
+          <font-awesome-icon :icon="['fas', 'search']" />
+        </button>
+        <button class="receiptpin-btn middle-round action-event">
+          &lt;&lt;
+        </button>
+        <button class="receiptpin-btn action-event" id="right-round">
+          &gt;&gt;
+        </button>
+      </div>
     </div>
-    <div class="snapFooter col-12 p-0">
-      <button class="pin-btn action-event">
-        <font-awesome-icon :icon="['fas', 'thumbtack']" />
-      </button>
-    </div>
-  </div>
 
-  <div class="infoSection d-flex flex-column align-items-center rounded-3">
-    <div
-      class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
-    >
-      <p class="m-0 text-end">مندوب</p>
-    </div>
-    <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
-      <select
-        class="select text-center form-select form-select-sm"
-        aria-label=".form-select-sm"
+    <div class="infoSection d-flex flex-column align-items-center rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
       >
-        <option selected>مندوب1</option>
-        <option value="1">مندوب2</option>
-      </select>
+        <p class="m-0 text-end">المخزن</p>
+      </div>
+      <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
+        <select
+          class="select text-center form-select form-select-sm"
+          aria-label=".form-select-sm"
+        >
+          <option selected>الرئيسي</option>
+          <option value="1">مخزن1</option>
+        </select>
+      </div>
+      <div class="snapFooter col-12 p-0">
+        <button class="pin-btn action-event">
+          <font-awesome-icon :icon="['fas', 'thumbtack']" />
+        </button>
+      </div>
     </div>
-    <div class="snapFooter col-12 p-0">
-      <button class="pin-btn action-event">
-        <font-awesome-icon :icon="['fas', 'thumbtack']" />
-      </button>
+
+    <div class="infoSection d-flex flex-column align-items-center rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
+      >
+        <p class="m-0 text-end">السداد</p>
+      </div>
+      <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
+        <select
+          class="select text-center form-select form-select-sm"
+          aria-label=".form-select-sm"
+        >
+          <option selected>نقدي</option>
+          <option value="1">اجل</option>
+        </select>
+      </div>
+      <div class="snapFooter col-12 p-0">
+        <button class="pin-btn action-event">
+          <font-awesome-icon :icon="['fas', 'thumbtack']" />
+        </button>
+      </div>
+    </div>
+
+    <div class="infoSection d-flex flex-column align-items-center rounded-3">
+      <div
+        class="infoTitle col-12 p-2 d-flex justify-content-center align-items-center"
+      >
+        <p class="m-0 text-end">مندوب</p>
+      </div>
+      <div class="middlePart d-flex col-12 flex-wrap p-2 text-end">
+        <select
+          class="select text-center form-select form-select-sm"
+          aria-label=".form-select-sm"
+        >
+          <option selected>مندوب1</option>
+          <option value="1">مندوب2</option>
+        </select>
+      </div>
+      <div class="snapFooter col-12 p-0">
+        <button class="pin-btn action-event">
+          <font-awesome-icon :icon="['fas', 'thumbtack']" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -157,7 +165,7 @@ $greenlight: #008560;
   direction: ltr;
   height: 7.087rem;
   width: calc((100% - 3rem) / 6);
-  min-width: 2.724rem;
+  min-width: 6rem;
 
   .print-btn {
     cursor: pointer;

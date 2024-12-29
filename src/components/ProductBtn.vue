@@ -32,17 +32,29 @@ defineProps({
 <style lang="scss" scoped>
 $greenlight: #008560;
 .productBtn {
-  width: calc((100% - 3rem) / 4);
   min-width: 150px;
+  width: calc((100% - 3rem) / 4);
+
+  @media screen and (max-width: 767px) {
+    width: calc((100% - 3rem) / 2);
+  }
+
+  @media screen and (min-width: 767px) and (max-width: 992px) {
+    width: calc((100% - 3rem) / 3);
+  }
+
   .imageContainer {
     background-color: $greenlight;
     border-radius: 0.5rem 0.5rem 0 0;
     height: 125px;
+    width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50%;
     img {
-      width: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 

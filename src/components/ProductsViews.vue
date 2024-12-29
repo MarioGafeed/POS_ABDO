@@ -27,10 +27,10 @@
         :stockAvaialable="5000"
         :price="product.price"
         :name="product.name"
-        imgUrl="https://btech.com/media/catalog/product/i/p/iphone_x_silver_front.jpg?width=560&height=560&store=en&image-type=image"
+        :imgUrl="productImg"
       />
     </div>
-    <div class="col-12  ">
+    <div class="col-12">
       <Pagination
         :total-pages="10"
         :max-visible-pages="4"
@@ -40,6 +40,7 @@
   </div>
 </template>
 <script setup>
+import productImg from "../assets/OIP__9_-removebg-preview.png";
 import { computed, ref } from "vue";
 import ProductBtn from "./ProductBtn.vue";
 import SnapBar from "./SnapBar.vue";
@@ -49,7 +50,12 @@ import Pagination from "./Pagination.vue";
 const searchVal = ref();
 
 const data = ref([
-  { id: 1, name: " اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ ", category: "laptop", price: 15000 },
+  {
+    id: 1,
+    name: " اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ ",
+    category: "laptop",
+    price: 15000,
+  },
   { id: 2, name: "hp zbook g6", category: "laptop", price: 12000 },
   { id: 3, name: "hp zbook g4", category: "laptop", price: 14000 },
   { id: 4, name: "dell precision", category: "workstation", price: 13000 },
