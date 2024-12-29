@@ -83,6 +83,7 @@ const props = defineProps({
 #productsView {
   transition: ease all 400ms;
   background-color: #15372c !important;
+  padding-left: 1rem;
 }
 
 .search {
