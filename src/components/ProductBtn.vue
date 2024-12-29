@@ -7,7 +7,7 @@
     </div>
     <div class="d-flex col-12 flex-wrap bg-white p-2 lowerPart">
       <p class="col-12 text-end">{{ name }}</p>
-      <p class="col-12 text-end " id="available">
+      <p class="col-12 text-end" id="available">
         المتاح: <span>{{ stockAvaialable }}</span>
       </p>
       <div class="d-flex col-12 align-items-center justify-content-between">
@@ -55,12 +55,11 @@ $greenlight: #008560;
     background-color: red;
     border-radius: 50%;
   }
-  #available{
+  #available {
     background-color: #008560;
     border-radius: 0.5rem;
     color: white;
     padding: 0.5rem;
-    
   }
 }
 </style>

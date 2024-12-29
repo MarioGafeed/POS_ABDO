@@ -1,13 +1,13 @@
 <template>
   <div
     id="productsView"
-    class="col-6 bg-info d-flex flex-column gap-2 position-relative"
+    class="col-6 d-flex flex-column gap-2 position-relative"
     :style="{ width: width + '%' }"
   >
-    <SnapBar />    
+    <SnapBar />
     <SetteingsBtn v-if="!isPhoneStore.isPhone" />
 
-    <div class="col-12  gap-3 row-gap-3 p-3 mt-2">      
+    <div class="col-12 gap-3 row-gap-3 p-3 mt-2">
       <input
         v-model="searchVal"
         class="search col-12"
@@ -15,7 +15,7 @@
       />
     </div>
     <div
-      class="col-12 products overflow-auto flex-grow-1 d-flex flex-wrap justify-content-end gap-3 row-gap-3 p-3"
+      class="col-12 overflow-auto flex-grow-1 d-flex flex-wrap justify-content-end gap-3 row-gap-3 p-3"
       style="height: 1px"
       dir="rtl"
     >
@@ -30,10 +30,12 @@
         imgUrl="https://btech.com/media/catalog/product/i/p/iphone_x_silver_front.jpg?width=560&height=560&store=en&image-type=image"
       />
     </div>
-    <div class="pagination col-12 p-3">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
+    <div class="col-12  ">
+      <Pagination
+        :total-pages="10"
+        :max-visible-pages="4"
+        @page-change="handlePageChange"
+      />
     </div>
   </div>
 </template>
@@ -43,10 +45,11 @@ import ProductBtn from "./ProductBtn.vue";
 import SnapBar from "./SnapBar.vue";
 import SetteingsBtn from "./SetteingsBtn.vue";
 import { useisPhoneStore } from "../stores/isPhone";
+import Pagination from "./Pagination.vue";
 const searchVal = ref();
 
 const data = ref([
-  { id: 1, name: "اعظم من التاريخ", category: "laptop", price: 15000 },
+  { id: 1, name: " اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ اعظم من التاريخ ", category: "laptop", price: 15000 },
   { id: 2, name: "hp zbook g6", category: "laptop", price: 12000 },
   { id: 3, name: "hp zbook g4", category: "laptop", price: 14000 },
   { id: 4, name: "dell precision", category: "workstation", price: 13000 },
@@ -82,7 +85,7 @@ const props = defineProps({
   background-color: #15372c !important;
 }
 
-.search{
+.search {
   border-radius: 5rem;
   background-color: #ffffff;
   text-align-last: right;
@@ -97,30 +100,30 @@ input {
 /* width */
 ::-webkit-scrollbar {
   width: 12px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border-radius: 10px;
-  margin: 10px !important;   
+  margin: 10px !important;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background-color: #F5F5F5;
-  padding: 10px  !important;
+  background-color: #f5f5f5;
+  padding: 10px !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #898f8f;
-  padding: 10px  !important;
-  margin: 10px  !important;
+  padding: 10px !important;
+  margin: 10px !important;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #020000;
+  background: #616a6b;
 }
 </style>

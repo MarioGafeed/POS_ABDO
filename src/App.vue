@@ -20,7 +20,6 @@ import { ref } from "vue";
 import Loader from "./components/Loader.vue";
 import ProductsViews from "./components/ProductsViews.vue";
 
-import SetteingsBtn from "./components/SetteingsBtn.vue";
 import TableView from "./components/TableView.vue";
 import { useloaderIndex } from "./stores/loaderIndex";
 import { useRatioStore } from "./stores/ratio";
